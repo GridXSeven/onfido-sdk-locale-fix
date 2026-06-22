@@ -13,14 +13,14 @@ class Onfido {
   /// - The [onfidoTheme] is an enum used to determine which theme the UI will be rendered with (DARK, LIGHT, AUTOMATIC)
   Onfido(
       {required String sdkToken,
-        String? iosLocalizationFileName,
-        String? locale,
-        IOSAppearance? iosAppearance,
-        EnterpriseFeatures? enterpriseFeatures,
-        NFCOptions? nfcOption,
-        OnfidoMediaCallback? mediaCallback,
-        BiometricTokenCallback? biometricTokenCallback,
-        OnfidoTheme? onfidoTheme})
+      String? iosLocalizationFileName,
+      String? locale,
+      IOSAppearance? iosAppearance,
+      EnterpriseFeatures? enterpriseFeatures,
+      NFCOptions? nfcOption,
+      OnfidoMediaCallback? mediaCallback,
+      BiometricTokenCallback? biometricTokenCallback,
+      OnfidoTheme? onfidoTheme})
       : _sdkToken = sdkToken,
         _iOSLocalizationFileName = iosLocalizationFileName,
         _locale = locale,
