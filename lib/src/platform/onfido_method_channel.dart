@@ -22,24 +22,28 @@ class MethodChannelOnfido extends OnfidoPlatform {
   static BiometricTokenCallback? _biometricTokenCallback;
 
   @override
-  Future<List<OnfidoResult>> start(
-      {required String sdkToken,
-      required FlowSteps flowSteps,
-      String? iosLocalizationFileName,
-      IOSAppearance? iosAppearance,
-      OnfidoMediaCallback? mediaCallback,
-      EnterpriseFeatures? enterpriseFeatures,
-      NFCOptions? nfcOption,
-      OnfidoTheme? onfidoTheme}) async {
+  Future<List<OnfidoResult>> start({
+    required String sdkToken,
+    required FlowSteps flowSteps,
+    String? iosLocalizationFileName,
+    String? locale,
+    IOSAppearance? iosAppearance,
+    OnfidoMediaCallback? mediaCallback,
+    EnterpriseFeatures? enterpriseFeatures,
+    NFCOptions? nfcOption,
+    OnfidoTheme? onfidoTheme,
+  }) async {
     final arguments = StartOptionsSerializer.serialize(
-        sdkToken: sdkToken,
-        flowSteps: flowSteps,
-        iosAppearance: iosAppearance,
-        shouldUseMediaCallback: mediaCallback != null,
-        iosLocalizationFileName: iosLocalizationFileName,
-        enterpriseFeatures: enterpriseFeatures,
-        nfcOption: nfcOption,
-        onfidoTheme: onfidoTheme);
+      sdkToken: sdkToken,
+      flowSteps: flowSteps,
+      iosAppearance: iosAppearance,
+      shouldUseMediaCallback: mediaCallback != null,
+      iosLocalizationFileName: iosLocalizationFileName,
+      locale: locale,
+      enterpriseFeatures: enterpriseFeatures,
+      nfcOption: nfcOption,
+      onfidoTheme: onfidoTheme,
+    );
 
     _mediaCallback = mediaCallback;
 
@@ -48,24 +52,28 @@ class MethodChannelOnfido extends OnfidoPlatform {
   }
 
   @override
-  Future<void> startWorkflow(
-      {required String sdkToken,
-      required String workflowRunId,
-      IOSAppearance? iosAppearance,
-      OnfidoMediaCallback? mediaCallback,
-      BiometricTokenCallback? biometricTokenCallback,
-      String? iosLocalizationFileName,
-      EnterpriseFeatures? enterpriseFeatures,
-      OnfidoTheme? onfidoTheme}) async {
+  Future<void> startWorkflow({
+    required String sdkToken,
+    required String workflowRunId,
+    IOSAppearance? iosAppearance,
+    OnfidoMediaCallback? mediaCallback,
+    BiometricTokenCallback? biometricTokenCallback,
+    String? iosLocalizationFileName,
+    String? locale,
+    EnterpriseFeatures? enterpriseFeatures,
+    OnfidoTheme? onfidoTheme,
+  }) async {
     final arguments = StartStudioSerializer.serialize(
-        sdkToken: sdkToken,
-        workflowRunId: workflowRunId,
-        iosAppearance: iosAppearance,
-        shouldUseMediaCallback: mediaCallback != null,
-        shouldUseBiometricTokenCallback: biometricTokenCallback != null,
-        iosLocalizationFileName: iosLocalizationFileName,
-        enterpriseFeatures: enterpriseFeatures,
-        onfidoTheme: onfidoTheme);
+      sdkToken: sdkToken,
+      workflowRunId: workflowRunId,
+      iosAppearance: iosAppearance,
+      shouldUseMediaCallback: mediaCallback != null,
+      shouldUseBiometricTokenCallback: biometricTokenCallback != null,
+      iosLocalizationFileName: iosLocalizationFileName,
+      locale: locale,
+      enterpriseFeatures: enterpriseFeatures,
+      onfidoTheme: onfidoTheme,
+    );
 
     _mediaCallback = mediaCallback;
     _biometricTokenCallback = biometricTokenCallback;
